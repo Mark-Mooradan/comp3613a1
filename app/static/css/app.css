@@ -1,17 +1,16 @@
 :root {
-  /* Phase 5 theming: Guide overwrites these from docs/report.md preferences */
-  --brand-name: "FastStarter";
-  --brand-bg: #0c1218;
-  --brand-surface: #f7f4ef;
-  --brand-ink: #14202b;
-  --brand-muted: #6a7a88;
-  --brand-accent: #c45c26;
-  --brand-accent-2: #2a6f6b;
-  --brand-sidebar: #14202b;
-  --brand-sidebar-text: #a8b4bf;
-  --brand-font-display: "Fraunces", Georgia, serif;
-  --brand-font-body: "Source Sans 3", "Segoe UI", sans-serif;
-  --brand-radius: 0.85rem;
+  --brand-name: "Bloom";
+  --brand-bg: #ffffff;
+  --brand-surface: #ffffff;
+  --brand-ink: #0f172a;
+  --brand-muted: #64748b;
+  --brand-accent: #22c55e;
+  --brand-accent-2: #dcfce7;
+  --brand-sidebar: #ffffff;
+  --brand-sidebar-text: #334155;
+  --brand-font-display: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --brand-font-body: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --brand-radius: 1rem;
 }
 
 *,
@@ -270,4 +269,126 @@ body {
 
 .auth-back:hover {
   color: var(--brand-accent);
+}
+
+/* Bloom: light, encouraging surfaces for the public and signed-in app. */
+body {
+  background: var(--brand-bg);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--brand-accent);
+  --bs-btn-border-color: var(--brand-accent);
+  --bs-btn-hover-bg: #16a34a;
+  --bs-btn-hover-border-color: #16a34a;
+  --bs-btn-active-bg: #15803d;
+  --bs-btn-active-border-color: #15803d;
+  --bs-btn-focus-shadow-rgb: 34, 197, 94;
+}
+
+.brand-wordmark {
+  font-family: var(--brand-font-display);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+}
+
+.landing {
+  color: var(--brand-ink);
+  background:
+    radial-gradient(ellipse 55% 45% at 88% 24%, rgba(34, 197, 94, 0.12), transparent 68%),
+    linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+}
+
+.landing::before {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+}
+
+.landing-nav .brand-wordmark,
+.landing-hero .brand-wordmark {
+  color: var(--brand-accent);
+}
+
+.landing-nav .brand-wordmark {
+  text-decoration: none;
+}
+
+.landing-kicker {
+  color: #15803d;
+}
+
+.landing-lead {
+  color: #475569;
+}
+
+.btn-landing-primary {
+  background: var(--brand-accent);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.2);
+}
+
+.btn-landing-primary:hover {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.btn-landing-ghost {
+  color: var(--brand-ink);
+  border-color: #bbf7d0;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.btn-landing-ghost:hover {
+  border-color: var(--brand-accent);
+  background: var(--brand-accent-2);
+  color: #14532d;
+}
+
+.landing-foot {
+  color: #64748b;
+}
+
+.landing-orb {
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95), transparent 55%),
+    radial-gradient(circle at 70% 70%, rgba(34, 197, 94, 0.28), transparent 60%),
+    rgba(220, 252, 231, 0.58);
+}
+
+.auth-shell {
+  background:
+    radial-gradient(ellipse at top left, rgba(220, 252, 231, 0.9), transparent 58%),
+    radial-gradient(ellipse at bottom right, rgba(34, 197, 94, 0.1), transparent 52%),
+    #f8fffa;
+}
+
+.auth-panel {
+  border: 1px solid #dcfce7;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.09);
+}
+
+.auth-panel .brand-wordmark {
+  color: var(--brand-accent);
+}
+
+.auth-panel .btn-primary {
+  background: var(--brand-accent);
+  border-color: var(--brand-accent);
+  color: #ffffff;
+}
+
+.auth-panel .btn-primary:hover {
+  background: #16a34a;
+  border-color: #16a34a;
+}
+
+.auth-panel .form-control {
+  border-color: #cbd5e1;
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.85rem;
+}
+
+.auth-panel .form-control:focus {
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 0.2rem rgba(34, 197, 94, 0.16);
 }

@@ -1,0 +1,45 @@
+{
+  "system": "Student Awards System",
+  "actors": [
+    { "name": "Student", "side": "left" },
+    { "name": "Admin", "side": "right" }
+  ],
+  "use_cases": [
+    {
+      "name": "Log Volunteer Hours",
+      "actors": ["Student"],
+      "includes": ["Check Volunteer Hour Rules"]
+    },
+    {
+      "name": "Check Volunteer Hour Rules",
+      "actors": ["Student"]
+    },
+    {
+      "name": "Approve Volunteer Hours",
+      "actors": ["Admin"],
+      "includes": ["Review Submitted Hours"]
+    },
+    {
+      "name": "Review Submitted Hours",
+      "actors": ["Admin"]
+    },
+    {
+      "name": "Create Prize",
+      "actors": ["Admin"],
+      "includes": ["Set Prize Details and Cost"]
+    },
+    {
+      "name": "Set Prize Details and Cost",
+      "actors": ["Admin"]
+    },
+    {
+      "name": "Redeem a Prize",
+      "actors": ["Student"],
+      "includes": ["Check Reward Balance"]
+    },
+    {
+      "name": "Check Reward Balance",
+      "actors": ["Student"]
+    }
+  ]
+}

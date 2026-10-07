@@ -1,0 +1,41 @@
+@startuml
+!pragma layout smetana
+skinparam shadowing false
+skinparam actorBorderColor #1B365D
+skinparam actorFontColor #1E232D
+skinparam usecaseBackgroundColor #FFFFFF
+skinparam usecaseBorderColor #1B365D
+skinparam usecaseFontColor #1E232D
+skinparam rectangleBorderColor #1B365D
+skinparam rectangleBackgroundColor #F8FAFC
+skinparam arrowColor #1B365D
+
+actor "Student" as Student
+
+rectangle "Student Awards System" {
+  usecase "Log Volunteer Hours" as Log_Volunteer_Hours
+  usecase "Check Volunteer Hour Rules" as Check_Volunteer_Hour_Rules
+  usecase "Approve Volunteer Hours" as Approve_Volunteer_Hours
+  usecase "Review Submitted Hours" as Review_Submitted_Hours
+  usecase "Create Prize" as Create_Prize
+  usecase "Set Prize Details and Cost" as Set_Prize_Details_and_Cost
+  usecase "Redeem a Prize" as Redeem_a_Prize
+  usecase "Check Reward Balance" as Check_Reward_Balance
+}
+
+actor "Admin" as Admin
+
+Student --> Log_Volunteer_Hours
+Log_Volunteer_Hours ..> Check_Volunteer_Hour_Rules : <<include>>
+Student --> Check_Volunteer_Hour_Rules
+Approve_Volunteer_Hours <-- Admin
+Approve_Volunteer_Hours ..> Review_Submitted_Hours : <<include>>
+Review_Submitted_Hours <-- Admin
+Create_Prize <-- Admin
+Create_Prize ..> Set_Prize_Details_and_Cost : <<include>>
+Set_Prize_Details_and_Cost <-- Admin
+Student --> Redeem_a_Prize
+Redeem_a_Prize ..> Check_Reward_Balance : <<include>>
+Student --> Check_Reward_Balance
+
+@enduml

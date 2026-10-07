@@ -2,8 +2,29 @@
 {% block title %}Home{% endblock %}
 
 {% block subpage_content %}
-<div class="container-fluid py-2">
-  <h1 class="h4 mb-2">Home</h1>
-  <p class="text-muted mb-0">Workflow screens replace this shell in Phase 5 implement.</p>
+<div class="container-fluid py-2 py-lg-4">
+  <section class="rounded-4 p-4 p-lg-5 mb-4" style="background: linear-gradient(120deg, #f0fdf4, #ffffff); border: 1px solid #dcfce7;">
+    <p class="text-success fw-semibold text-uppercase small mb-2">Your community impact starts here</p>
+    <h1 class="display-6 fw-bold mb-3">Welcome to Bloom, {{ user.username }}.</h1>
+    <p class="fs-5 text-secondary mb-4" style="max-width: 48rem;">
+      Every hour you give helps your community grow. Log your volunteer work to send it for approval and earn progress toward a reward.
+    </p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('volunteer_hours_form') }}">
+      <span class="material-symbols-outlined align-middle me-1">volunteer_activism</span>
+      Log volunteer hours
+    </a>
+  </section>
+
+  <section class="card border-0 shadow-sm rounded-4" style="max-width: 48rem;">
+    <div class="card-body p-4">
+      <div class="d-flex align-items-start gap-3">
+        <span class="material-symbols-outlined text-success fs-2" aria-hidden="true">eco</span>
+        <div>
+          <h2 class="h5 mb-2">A little good goes a long way</h2>
+          <p class="text-secondary mb-0">After you submit your hours, an administrator reviews them. Approved hours count toward the rewards you can redeem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 {% endblock %}

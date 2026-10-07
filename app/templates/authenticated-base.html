@@ -4,7 +4,8 @@
 <style>
     body {
         overflow-x: hidden;
-        background: #f4f6f8;
+        background: #ffffff;
+        color: var(--brand-ink);
     }
 
     #wrapper {
@@ -17,8 +18,9 @@
         max-width: 250px;
         min-height: 100vh;
         transition: all 0.3s;
-        background: var(--brand-sidebar);
-        color: #fff;
+        background: #ffffff;
+        color: var(--brand-ink);
+        border-right: 1px solid #dcfce7;
     }
 
     #sidebar.collapsed {
@@ -32,13 +34,13 @@
 
     #sidebar .nav-link:hover,
     #sidebar .nav-link.active {
-        color: #fff;
-        background-color: color-mix(in srgb, var(--brand-accent) 55%, #000);
+        color: #14532d;
+        background-color: var(--brand-accent-2);
         border-radius: 0.5rem;
     }
 
     #sidebar .brand-wordmark {
-        color: #fff;
+        color: var(--brand-accent);
         font-size: 1.25rem;
         text-align: center;
         margin: 1rem 0 1.5rem;
@@ -50,7 +52,7 @@
         transition: all 0.3s;
         display: flex;
         flex-direction: column;
-        background-color: #f4f6f8;
+        background-color: #ffffff;
     }
 
     .navbar {
@@ -63,7 +65,7 @@
 {% block content %}
 <div id="wrapper">
     <nav id="sidebar" class="p-3 d-flex flex-column vh-100">
-        <div class="brand-wordmark">FastStarter</div>
+        <div class="brand-wordmark">Bloom</div>
 
         <ul class="nav nav-pills flex-column gap-2 flex-grow-1">
             <li class="nav-item">
@@ -73,6 +75,37 @@
                     Home
                 </a>
             </li>
+            {% if user.role != 'admin' %}
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center {{ 'active' if request.url.path.startswith('/volunteer-hours') }}"
+                   href="{{ url_for('volunteer_hours_form') }}">
+                    <span class="material-symbols-outlined me-2">volunteer_activism</span>
+                    Log Hours
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center {{ 'active' if request.url.path.startswith('/rewards') }}"
+                   href="{{ url_for('rewards_list') }}">
+                    <span class="material-symbols-outlined me-2">redeem</span>
+                    Redeem
+                </a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center {{ 'active' if request.url.path.startswith('/admin/volunteer-hours') or request.url.path == '/admin' }}"
+                   href="{{ url_for('admin_home_view') }}">
+                    <span class="material-symbols-outlined me-2">fact_check</span>
+                    Review Hours
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center {{ 'active' if request.url.path.startswith('/admin/prizes') }}"
+                   href="{{ url_for('admin_create_prize_form') }}">
+                    <span class="material-symbols-outlined me-2">redeem</span>
+                    Prizes
+                </a>
+            </li>
+            {% endif %}
             <li class="nav-item mt-auto">
                 <a class="nav-link d-flex align-items-center text-danger" href="{{ url_for('logout') }}">
                     <span class="material-symbols-outlined me-2">logout</span>
